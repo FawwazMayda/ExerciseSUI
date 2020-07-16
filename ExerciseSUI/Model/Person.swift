@@ -31,6 +31,12 @@ struct Mentor: Identifiable {
 class academyStore: ObservableObject {
     @Published var dataMentor = [Mentor]()
     init() {
+        addTech()
+        addDesign()
+        addTS()
+    }
+    
+    func addTech() {
         let david = Person(name: "DavidGun", imageNamed: "david")
         let thoya = Person(name: "thoya", imageNamed: "thoya")
         let handy = Person(name: "handy", imageNamed: "handy")
@@ -39,7 +45,9 @@ class academyStore: ObservableObject {
         techMentor.mentors.append(thoya)
         techMentor.mentors.append(handy)
         dataMentor.append(techMentor)
-        
+    }
+    
+    func addDesign() {
         let phil = Person(name: "Phil", imageNamed: "phil")
         let desi = Person(name: "desi", imageNamed: "desi")
         let george = Person(name: "george", imageNamed: "george")
@@ -48,14 +56,14 @@ class academyStore: ObservableObject {
         designMentor.mentors.append(desi)
         designMentor.mentors.append(george)
         dataMentor.append(designMentor)
-        
+    }
+    
+    func addTS() {
         let made = Person(name: "made", imageNamed: "made")
         var ts = Mentor(mentorType: "Techincal")
 
         ts.mentors.append(made)
         dataMentor.append(ts)
-        
-        dataMentor = dataMentor.shuffled()
     }
 }
 
